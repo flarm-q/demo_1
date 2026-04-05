@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>霓虹贪吃蛇</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="background-glow glow-left"></div>
+  <div class="background-glow glow-right"></div>
+  <div class="scan-lines"></div>
+
+  <main class="game-shell">
+    <section class="hero-panel">
+      <div class="hero-copy">
+        <p class="eyebrow">NEON SNAKE</p>
+        <h1>霓虹贪吃蛇</h1>
+        <p class="hero-text">选择你的生存模式，冲击更高分数。在霓虹赛博风棋盘里，速度越快，失误成本越高。</p>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span class="stat-label">当前分数</span>
+          <strong class="stat-value" id="score">0</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">最高分</span>
+          <strong class="stat-value" id="bestScore">0</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">当前模式</span>
+          <strong class="stat-value" id="currentMode">简单</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="game-layout">
+      <aside class="control-panel">
+        <div class="panel-block">
+          <h2>模式选择</h2>
+          <p class="panel-text">不同模式会影响移动速度，模式越高，反应时间越短。</p>
+
+          <div class="mode-list">
+            <button class="mode-btn active" type="button" data-mode="easy">
+              <span>简单</span>
+              <small>适合上手，节奏平稳</small>
+            </button>
+            <button class="mode-btn" type="button" data-mode="hard">
+              <span>困难</span>
+              <small>速度提升，压迫更强</small>
+            </button>
+            <button class="mode-btn hell" type="button" data-mode="hell">
+              <span>地狱</span>
+              <small>极限反应，容错极低</small>
+            </button>
+          </div>
+        </div>
+
+        <div class="panel-block">
+          <h2>游戏控制</h2>
+          <div class="actions">
+            <button id="startBtn" class="primary-btn" type="button">开始游戏</button>
+            <button id="pauseBtn" class="warning-btn" type="button">暂停游戏</button>
+            <button id="restartBtn" class="secondary-btn" type="button">重新开始</button>
+          </div>
+        </div>
+
+        <div class="panel-block">
+          <h2>操作说明</h2>
+          <ul class="tips-list">
+            <li>方向键控制移动</li>
+            <li>空格键可快速暂停 / 继续</li>
+            <li>不能直接反向转头</li>
+            <li>吃到食物增加 10 分</li>
+            <li>撞墙或撞到自己即失败</li>
+          </ul>
+        </div>
+      </aside>
+
+      <section class="board-panel">
+        <div class="board-header">
+          <div>
+            <p class="board-title">战场状态</p>
+            <p class="message" id="message">点击“开始游戏”开始</p>
+          </div>
+          <div class="board-side-status">
+            <div class="speed-tag" id="speedTag">低速</div>
+            <div class="state-badge" id="stateBadge">待命中</div>
+          </div>
+        </div>
+
+        <div class="board-frame">
+          <div class="board-overlay" id="boardOverlay">
+            <p class="overlay-mode" id="overlayMode">简单模式</p>
+            <h2 class="overlay-title" id="overlayTitle">准备开始</h2>
+            <p class="overlay-text" id="overlayText">点击开始按钮，或者按方向键直接进入游戏。</p>
+          </div>
+          <div class="board" id="board" aria-label="贪吃蛇游戏区域"></div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>
